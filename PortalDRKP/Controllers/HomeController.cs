@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PortalDRKP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,17 +14,22 @@ namespace PortalDRKP.Controllers
             return View();
         }
 
-        public ActionResult About()
+        Context db = new Context();
+        public ActionResult Deps()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            List<drkpDepartment> dep = db.drkpDepartment.ToList();
+            return PartialView(dep);
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Management()
+        {
             return View();
         }
     }

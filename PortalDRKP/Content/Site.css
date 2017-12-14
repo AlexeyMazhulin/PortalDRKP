@@ -1,24 +1,202 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+	font: 1em Arial;
+	background: #eaebec;
+	color:#000;
+}
+.head p	{
+    background:url(../Images/logo-softline.png) no-repeat #f5f5f5;
+    background-size: 200px;
+	font-family: Arial;
+	align-content: center;
+	text-align: center;
+	font-size: 3em;
+    display: block;  
+    color: #a75673;
+    height: 50px;
+    margin:0;
+    border-radius: 1.5em; 
+    padding:4px;
+
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+nav  {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    height: 40px;
+
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+nav ul {
+    
+    padding: .2em;
+    text-align: center;
+    list-style: none;
+    background: #444;
+    background: rgba(0,0,0,.2);
+    -moz-border-radius: .5em;
+    -webkit-border-radius: .5em;
+    border-radius: 1.5em;    
+    -moz-box-shadow: 0 1px 0 rgba(255,255,255,.2), 0 2px 1px rgba(0,0,0,.8) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.2), 0 2px 1px rgba(0,0,0,.8) inset;
+    box-shadow: 0 1px 0 rgba(255,255,255,.2), 0 2px 1px rgba(0,0,0,.8) inset; 
+    margin-top: 0;
+
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+nav li {
+
+	display: inline-block;
+	text-align: center;
+    align-items: center;
+    padding: .3em 1.5em;
+    text-decoration: none;
+    color: #000;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    font: bold 1.3em/1 'trebuchet MS', Arial, Helvetica;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff #ccc #999 #eee;
+    background: #c1c1c1;
+    background: -moz-linear-gradient(#f5f5f5, #c1c1c1);
+    background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#c1c1c1));
+    background: -webkit-linear-gradient(#f5f5f5, #c1c1c1);
+    background: -o-linear-gradient(#f5f5f5, #c1c1c1);
+    background: linear-gradient(#f5f5f5, #c1c1c1);            
+ }
+ 
+nav li:hover, nav li:focus {
+    outline: 0;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0,0,0,.7);
+    background: #7CBFFA;
+    background: -moz-linear-gradient(#7CBFFA, #f8ac00);
+    background: -webkit-gradient(linear, left top, left bottom, from(#7CBFFA), to(#f8ac00));
+    background: -webkit-linear-gradient(#7CBFFA, #f8ac00);
+    background: -o-linear-gradient(#7CBFFA, #f8ac00);
+    background: linear-gradient(#7CBFFA,#7C81FA);
+    border-radius: .5em; 
+
+   
+}
+
+nav li:active {
+    -moz-box-shadow: 0 0 2px 2px rgba(0,0,0,.3) inset;
+    -webkit-box-shadow: 0 0 2px 2px rgba(0,0,0,.3) inset;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.3) inset;
+}
+ 
+nav li:first-child a {
+    border-left: 0;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;            
+}
+
+nav li:last-child a {
+    border-right: 0;
+    -moz-border-radius: 0 4px 4px 0;
+    -webkit-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;            
+}
+
+p.TreeStyle {
+    color:mediumblue;
+    font-size:1.5em;
+}
+
+p.TreeStyle:hover {
+    color:blue;
+    font-size:1.6em;
+    text-decoration:solid;
+    cursor:pointer;
+}
+
+p.TreeStyle {
+    color:mediumblue;
+    font-size:1.5em;
+}
+
+p.TreeStyle:hover {
+    color:blue;
+    font-size:1.6em;
+    text-decoration:solid;
+    cursor:pointer;
+}
+
+p.Employee {
+    color:#000;
+    font-size:1.2em;
+    cursor:pointer;
+    }
+
+a.EmpMenu {
+    color:red;
+    font-size:1.2em;
+    cursor:pointer;
+    display:inline;
+    position:relative;
+    left:-9999px;
+    
+}
+
+p.Employee:hover a.EmpMenu{
+	left:0;
+}
+
+p.Employee:hover{
+	color:blue;
+    text-decoration:solid;
+    font-size:1.3em;
+}
+div.Employee {
+    color:#000;
+    font-size:2.2em;
+    cursor:pointer;
+    display:inline;
+    position:inherit;
+
+     }
+
+
+div.EmpMenu {
+    color:#000;
+    background-image:url("../Images/EmpEmty.png");
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position-y:-20px;
+    font-size:2.8em;
+    cursor:pointer;
+    display:inline;
+    position:relative;
+    left:-200px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 1s cubic-bezier(.03, .96, .04, .98); 
+    -moz-transition: all 1s cubic-bezier(.03, .96, .04, .98);
+    -o-transition: all 1s cubic-bezier(.03, .96, .04, .98); 
+    z-index:-1;
+     }
+
+
+li.Employee:hover div.EmpMenu{
+    left:0;
+    opacity:1;
+    visibility: visible;
+    z-index:0;
+
+     }
+
+a.EmpMenuEdit {
+    color:transparent;
+}
+
+a.EmpMenuKPI {
+    color:transparent;
+}
+
+a.EmpMenuDetails {
+    color:transparent;
 }

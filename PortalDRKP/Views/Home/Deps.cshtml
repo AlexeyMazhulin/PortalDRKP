@@ -1,0 +1,52 @@
+﻿@using PortalDRKP.Models
+@model IEnumerable<PortalDRKP.Models.drkpDepartment>
+
+@helper BuildMenu(IEnumerable<drkpDepartment> data, int? parentID = null, string isVisible = "inline-block", int? DepClass = 0)
+{
+var items = data.Where(d => d.ParentID == parentID).OrderBy(i => i.DepOrder);
+if (items.Any())
+{
+        <div class="@DepClass" style="display:@isVisible;">
+            <ul>
+                @foreach (var item in items)
+                {
+
+                    <li style="list-style-type:none;">
+                        <p class="TreeStyle" onclick="my_f(@item.ID)">@item.DepartmentName</p>
+                        <ul class="@item.ID" style="display:none">
+                            @foreach (drkpStaffList st in item.drkpStaffList)
+                            {
+                                <li class="Employee" style="list-style-type:none;">
+                                    <div class="Employee">
+                                        @if (st.UserID != null)
+                                        { @st.cmnUser.FullNameEn}
+                                        else
+                                        {@st.StaffCode }
+                                    </div>
+                                    <div class="EmpMenu">
+                                        <a class="EmpMenuEdit" onmouseover="f_in(1)" onmouseout="f_out()">__E  d  i  t</a>
+                                        <a class="EmpMenuKPI" onmouseover="f_in(2)" onmouseout="f_out()">adKPI</a>
+                                        <a class="EmpMenuDetails" onmouseover="f_in(3)" onmouseout="f_out()">Details</a>
+                                    </div>
+                                </li>
+
+                            }
+                        </ul>
+                        @if (item.ID != 20) { isVisible = "none"; }
+            else { isVisible = "block"; }
+                        @BuildMenu(data, item.ID, isVisible, item.ID)
+                    </li>
+
+                }
+            </ul>
+        </div>
+}
+}
+<div style="display:inline-block;">
+    @BuildMenu(Model)
+</div>
+
+
+
+
+
