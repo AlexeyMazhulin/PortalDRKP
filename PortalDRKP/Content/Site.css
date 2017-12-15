@@ -115,6 +115,8 @@ p.TreeStyle:hover {
 }
 
 p.TreeStyle {
+    padding:0;
+    margin:0;
     color:mediumblue;
     font-size:1.5em;
 }
@@ -199,4 +201,53 @@ a.EmpMenuKPI {
 
 a.EmpMenuDetails {
     color:transparent;
+}
+
+div.SubMenu {
+    padding:0;
+    display:inline-block;
+    color:#000;
+    /*background-image:url("../Images/EmpEmty.png");*/
+    background-size:initial;
+    background-position-y:-30px;
+    background-position-x:-10px;
+    background-repeat:no-repeat;
+    font-size:2.2em;
+    cursor:pointer;
+    position:relative;
+    left:-200px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 1s cubic-bezier(.03, .96, .04, .98); 
+    -moz-transition: all 1s cubic-bezier(.03, .96, .04, .98);
+    -o-transition: all 1s cubic-bezier(.03, .96, .04, .98); 
+    z-index:-1;
+     }
+
+div.TreeStyle {
+    display:inline-block;
+    padding:0;
+    margin:0;
+}
+
+div.TreeStyle:hover div.SubMenu {
+    left:0;
+    opacity:1;
+    visibility: visible;
+    z-index:0;
+}
+
+
+div.TreeStyle:hover p.TreeStyle{
+        color: blue;
+        font-size: 1.6em;
+        text-decoration: solid;
+        cursor: pointer;
+    }
+
+a.SubMenuEdit {
+    font-size:1.5em;
+    color:transparent;
+    padding:0;
+    margin:0;
 }

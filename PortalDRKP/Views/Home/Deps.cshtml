@@ -1,6 +1,16 @@
 ﻿@using PortalDRKP.Models
 @model IEnumerable<PortalDRKP.Models.drkpDepartment>
 
+<nav>
+    <ul>
+        <li>@Html.ActionLink("ДРКП", "DRKP", "Management")</li>
+        <li>@Html.ActionLink("Подразделения", "Sub", "Management")</li>
+        @*<li>@Html.ActionLink("Действие3", "Index", "Management")</li>
+            <li>@Html.ActionLink("Действие4", "Index", "Management")</li>*@
+
+    </ul>
+</nav>
+
 @helper BuildMenu(IEnumerable<drkpDepartment> data, int? parentID = null, string isVisible = "inline-block", int? DepClass = 0)
 {
 var items = data.Where(d => d.ParentID == parentID).OrderBy(i => i.DepOrder);

@@ -1,0 +1,89 @@
+﻿@using PortalDRKP.Models
+@model IEnumerable<PortalDRKP.Models.T_1C_Subdivision>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("ДРКП", "DRKP", "Management")</li>
+            <li>@Html.ActionLink("Подразделения", "Sub", "Management")</li>
+            @*<li>@Html.ActionLink("Действие3", "Index", "Management")</li>
+                <li>@Html.ActionLink("Действие4", "Index", "Management")</li>*@
+
+        </ul>
+    </nav>
+
+    @helper BuildMenu(IEnumerable<T_1C_Subdivision> data, int? parentID = 1454, string isVisible = "inline-block", int? DepClass = 0)
+    {
+var items = data.Where(d => d.Sub_ParentID == parentID).OrderBy(i => i.Order);
+if (items.Any())
+{
+        <div class="@DepClass" style="display:@isVisible;">
+            <ul>
+                @foreach (var item in items)
+                {
+
+                    <li style="list-style-type:none;">
+                        <div class="TreeStyle" >
+                            <p class="TreeStyle" style="display:inline-block" onclick="my_f(@item.Sub_ID)">
+                                @item.Sub_Name
+                                @if (item.DepartmentID != null)
+                                {<span style="color:green">(@item.cmnDepartment.DepartmentName)</span>
+                                }
+                                @if (item.pVertical != null)
+                                {<span style="color:red">*@item.pVertical.Name*</span>
+                                }
+                            </p>
+                            <div class="SubMenu">
+                                @Html.ActionLink("EDIT", "Edit", "Management",item.Sub_ID)
+                               @* <a class="SubMenuEdit" onmouseover="S_in(1)" onmouseout="S_out()">__Edit__</a>*@
+                            </div>
+                        </div>
+
+                            @*<ul class="@item.Sub_ID" style="display:none">
+                @foreach (T_1C_Users st in item.T_1C_Users)
+                {
+                    <li class="Employee" style="list-style-type:none;">
+                        <div class="Employee">
+                            @if (item.T_1C_Users != null)
+                            { @st.User_Name}
+                            @*else
+                            {@st.StaffCode }
+                        </div>
+                        <div class="EmpMenu">
+                            <a class="EmpMenuEdit" onmouseover="f_in(1)" onmouseout="f_out()">__E  d  i  t</a>
+                            <a class="EmpMenuKPI" onmouseover="f_in(2)" onmouseout="f_out()">adKPI</a>
+                            <a class="EmpMenuDetails" onmouseover="f_in(3)" onmouseout="f_out()">Details</a>
+                        </div>
+                    </li>
+
+                }
+            </ul>*@
+                            @if (item.Sub_ID != 12) { isVisible = "none"; }
+            else { isVisible = "block"; }
+                            @BuildMenu(data, item.Sub_ID, isVisible, item.Sub_ID)
+</li>
+
+                }
+            </ul>
+        </div>
+}
+}
+    <div style="display:inline-block;">
+        @BuildMenu(Model)
+    </div>
+
+
+
+</body>
+

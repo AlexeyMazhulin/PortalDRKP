@@ -131,9 +131,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\cmnDepartment.cs" />
     <Compile Include="Models\cmnUser.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\drkpBudget.cs" />
@@ -145,6 +147,10 @@
     <Compile Include="Models\drkpStaffKPIHistory.cs" />
     <Compile Include="Models\drkpStaffList.cs" />
     <Compile Include="Models\drkpStaffListHistory.cs" />
+    <Compile Include="Models\pVertical.cs" />
+    <Compile Include="Models\TContext.cs" />
+    <Compile Include="Models\T_1C_Subdivision.cs" />
+    <Compile Include="Models\T_1C_Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +195,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Deps.cshtml" />
     <Content Include="Views\Home\Management.cshtml" />
+    <Content Include="Views\Management\DRKP.cshtml" />
+    <Content Include="Views\Management\Sub.cshtml" />
+    <Content Include="Views\Management\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
