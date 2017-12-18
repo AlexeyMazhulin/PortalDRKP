@@ -1,0 +1,126 @@
+﻿@using PortalDRKP.Models
+@model IEnumerable<PortalDRKP.Models.T_1C_Users>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("ДРКП", "DRKP", "Management")</li>
+            <li>@Html.ActionLink("Подразделения", "Sub", "Management")</li>
+        </ul>
+    </nav>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.pVertical.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.T_1C_Subdivision.Sub_SID1C)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.T_1C_Users2.User_SID1C)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User_SID1C)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User_ID1C)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SUBDIVISION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reg_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MODIFIEDSTATUS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROJECT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proj_ID)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pVertical.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.T_1C_Subdivision.Sub_SID1C)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.T_1C_Users2.User_SID1C)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User_SID1C)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User_ID1C)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SUBDIVISION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reg_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MODIFIEDSTATUS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROJECT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proj_ID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.User_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.User_ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.User_ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PortalDRKP.Models.T_1C_Subdivision>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cmnDepartment.DepartmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pVertical.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_1C_Subdivision2.Sub_SID1C)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sub_SID1C)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sub_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Show)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cmnDepartment.DepartmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pVertical.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_1C_Subdivision2.Sub_SID1C)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sub_SID1C)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sub_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Show)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Sub_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Sub_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Sub_ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -17,9 +17,6 @@
         <ul>
             <li>@Html.ActionLink("ДРКП", "DRKP", "Management")</li>
             <li>@Html.ActionLink("Подразделения", "Sub", "Management")</li>
-            @*<li>@Html.ActionLink("Действие3", "Index", "Management")</li>
-                <li>@Html.ActionLink("Действие4", "Index", "Management")</li>*@
-
         </ul>
     </nav>
 
@@ -45,8 +42,8 @@ if (items.Any())
                                 }
                             </p>
                             <div class="SubMenu">
-                                @Html.ActionLink("EDIT", "Edit", "Management",item.Sub_ID)
-                               @* <a class="SubMenuEdit" onmouseover="S_in(1)" onmouseout="S_out()">__Edit__</a>*@
+                               <a class="SubMenuEdit" onmouseover="S_in(1)" onmouseout="S_out()" href="/T_1C_Subdivision/Edit/@item.Sub_ID">__Edit__</a>
+                                <a class="SubMenuEdit" onmouseover="S_in(1)" onmouseout="S_out()" href="/T_1C_Subdivision/Details/@item.Sub_ID">Details</a>
                             </div>
                         </div>
 

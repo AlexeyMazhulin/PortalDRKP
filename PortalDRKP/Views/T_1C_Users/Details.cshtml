@@ -1,0 +1,138 @@
+﻿@model PortalDRKP.Models.T_1C_Users
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>T_1C_Users</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.pVertical.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.pVertical.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.T_1C_Subdivision.Sub_SID1C)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.T_1C_Subdivision.Sub_SID1C)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.T_1C_Users2.User_SID1C)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.T_1C_Users2.User_SID1C)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Order)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Order)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User_SID1C)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User_SID1C)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User_ID1C)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User_ID1C)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.User_Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.User_Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SUBDIVISION)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SUBDIVISION)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Reg_ID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Reg_ID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.REGION)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.REGION)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MODIFIEDSTATUS)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MODIFIEDSTATUS)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PROJECT)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PROJECT)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Proj_ID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Proj_ID)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.User_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

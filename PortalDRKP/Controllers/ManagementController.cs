@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
 
 namespace PortalDRKP.Controllers
 {
@@ -21,18 +22,15 @@ namespace PortalDRKP.Controllers
         {
             IEnumerable<T_1C_Subdivision> Isubs = db.T_1C_Subdivision;
             var subs = Isubs.Where(p => p.Show == 1).ToList();
-
-            //List<T_1C_Subdivision> sub = db.T_1C_Subdivision.ToList();
-
             return PartialView(subs);
             
         }
-
-        public ActionResult Edit(int id)
+        public ActionResult Emp()
         {
-            return View(id);
+            IEnumerable<T_1C_Users> Iusers = db.T_1C_Users;
+            var users = Iusers.Where(p => p.Sub_ID == 10).ToList();
+            return PartialView(users);
+
         }
-
-
     }
 }

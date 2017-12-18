@@ -132,6 +132,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\T_1C_SubdivisionController.cs" />
+    <Compile Include="Controllers\T_1C_UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,7 +199,17 @@
     <Content Include="Views\Home\Management.cshtml" />
     <Content Include="Views\Management\DRKP.cshtml" />
     <Content Include="Views\Management\Sub.cshtml" />
-    <Content Include="Views\Management\Edit.cshtml" />
+    <Content Include="Views\T_1C_Subdivision\Create.cshtml" />
+    <Content Include="Views\T_1C_Subdivision\Delete.cshtml" />
+    <Content Include="Views\T_1C_Subdivision\Details.cshtml" />
+    <Content Include="Views\T_1C_Subdivision\Edit.cshtml" />
+    <Content Include="Views\T_1C_Subdivision\Index.cshtml" />
+    <Content Include="Views\T_1C_Users\Create.cshtml" />
+    <Content Include="Views\T_1C_Users\Delete.cshtml" />
+    <Content Include="Views\T_1C_Users\Details.cshtml" />
+    <Content Include="Views\T_1C_Users\Edit.cshtml" />
+    <Content Include="Views\T_1C_Users\Index.cshtml" />
+    <Content Include="Views\Management\Emp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,91 @@
+﻿@model PortalDRKP.Models.T_1C_Subdivision
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>T_1C_Subdivision</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cmnDepartment.DepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cmnDepartment.DepartmentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pVertical.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pVertical.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.T_1C_Subdivision2.Sub_SID1C)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_1C_Subdivision2.Sub_SID1C)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sub_SID1C)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sub_SID1C)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sub_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sub_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Show)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Show)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Sub_ID }) |
+    @Html.ActionLink("Back to List", "Sub", "Management")|
+    @Html.ActionLink("Show Employee", "Emp", "Management")
+</p>
