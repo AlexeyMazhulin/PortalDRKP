@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Management";
+}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @*<nav>
+            <ul>
+                <li>@Html.ActionLink("Действие1", "Index", "Management")</li>
+                <li>@Html.ActionLink("Действие2", "Index", "Management")</li>
+                <li>@Html.ActionLink("Действие3", "Index", "Management")</li>
+                <li>@Html.ActionLink("Действие4", "Index", "Management")</li>
+
+            </ul>
+        </nav>*@
+    @Html.Action("Deps", "Home")
+
+</body>

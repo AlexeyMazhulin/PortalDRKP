@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SalesModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="MapFindSpr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameru" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="MapUserUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstNameRU" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastNameRU" Type="nvarchar" Mode="In" />
+          <Parameter Name="FirstNameEn" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastNameEn" Type="nvarchar" Mode="In" />
+          <Parameter Name="DomainName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Mail" Type="nvarchar" Mode="In" />
+          <Parameter Name="userID" Type="int" Mode="In" />
+          <Parameter Name="ID1C" Type="int" Mode="In" />
+          <Parameter Name="IDCRM" Type="nvarchar" Mode="In" />
+          <Parameter Name="StaffCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmpDate" Type="nvarchar" Mode="In" />
+          <Parameter Name="dismissDate" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище SalesModelContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SalesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SalesEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="MapFindSpr" ReturnType="Collection(SalesModel.UserSpr)">
+            <Parameter Name="nameru" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="MapUserUpd">
+            <Parameter Name="FirstNameRU" Mode="In" Type="String" />
+            <Parameter Name="LastNameRU" Mode="In" Type="String" />
+            <Parameter Name="FirstNameEn" Mode="In" Type="String" />
+            <Parameter Name="LastNameEn" Mode="In" Type="String" />
+            <Parameter Name="DomainName" Mode="In" Type="String" />
+            <Parameter Name="Mail" Mode="In" Type="String" />
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+            <Parameter Name="ID1C" Mode="In" Type="Int32" />
+            <Parameter Name="IDCRM" Mode="In" Type="String" />
+            <Parameter Name="StaffCode" Mode="In" Type="String" />
+            <Parameter Name="EmpDate" Mode="In" Type="String" />
+            <Parameter Name="dismissDate" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="MapFindSpr_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="FullNameRu" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="DomainName" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="EMailAddress" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="StaffCode" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FirstNameRu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastNameRu" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="EmploymentDate" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="UserSpr">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="FullNameRu" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="DomainName" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="EMailAddress" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="StaffCode" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FirstNameRu" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastNameRu" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="EmploymentDate" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SalesModelContainer" CdmEntityContainer="SalesEntities" >
+          <FunctionImportMapping FunctionImportName="MapFindSpr" FunctionName="Хранилище SalesModel.MapFindSpr">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="SalesModel.UserSpr">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FullNameRu" ColumnName="FullNameRu" />
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+                <ScalarProperty Name="EMailAddress" ColumnName="EMailAddress" />
+                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+                <ScalarProperty Name="FirstNameRu" ColumnName="FirstNameRu" />
+                <ScalarProperty Name="LastNameRu" ColumnName="LastNameRu" />
+                <ScalarProperty Name="EmploymentDate" ColumnName="EmploymentDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MapUserUpd" FunctionName="Хранилище SalesModel.MapUserUpd" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

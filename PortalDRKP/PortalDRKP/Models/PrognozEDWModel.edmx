@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище PrognozEDWModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="MapFind1C" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nameRU" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="MapFindCRM1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="str" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище PrognozEDWModelContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PrognozEDWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PrognozEDWEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="MapFind1C" ReturnType="Collection(PrognozEDWModel.User1C)">
+            <Parameter Name="nameRU" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="MapFindCRM1" ReturnType="Collection(PrognozEDWModel.UserCRM)">
+            <Parameter Name="str" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="MapFind1C_Result">
+          <Property Type="Int32" Name="User_ID" Nullable="false" />
+          <Property Type="String" Name="User_Name" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Parent" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Sub_Name" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="MapFindCRM1_Result">
+          <Property Type="String" Name="SysUIDCRM" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SysUFullName" Nullable="false" MaxLength="160" />
+          <Property Type="String" Name="Parent" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="Otdel" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="SysUFirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SysULastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DomainName" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="EMailAddress" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="User1C">
+          <Property Type="Int32" Name="User_ID" Nullable="false" />
+          <Property Type="String" Name="User_Name" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Parent" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Sub_Name" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="UserCRM">
+          <Property Type="String" Name="SysUIDCRM" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SysUFullName" Nullable="false" MaxLength="160" />
+          <Property Type="String" Name="Parent" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="Otdel" Nullable="true" MaxLength="160" />
+          <Property Type="String" Name="SysUFirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SysULastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DomainName" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="EMailAddress" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PrognozEDWModelContainer" CdmEntityContainer="PrognozEDWEntities" >
+          <FunctionImportMapping FunctionImportName="MapFind1C" FunctionName="Хранилище PrognozEDWModel.MapFind1C">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="PrognozEDWModel.User1C">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="Sub_Name" ColumnName="Sub_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MapFindCRM1" FunctionName="Хранилище PrognozEDWModel.MapFindCRM1">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="PrognozEDWModel.UserCRM">
+                <ScalarProperty Name="SysUIDCRM" ColumnName="SysUIDCRM" />
+                <ScalarProperty Name="SysUFullName" ColumnName="SysUFullName" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="Otdel" ColumnName="Otdel" />
+                <ScalarProperty Name="SysUFirstName" ColumnName="SysUFirstName" />
+                <ScalarProperty Name="SysULastName" ColumnName="SysULastName" />
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+                <ScalarProperty Name="EMailAddress" ColumnName="EMailAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,268 @@
+﻿@using PortalDRKP.Models;
+
+@model PortalDRKP.Models.CombinedUserList
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        background-color: white;
+        padding-left: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 25%;
+    }
+
+    p {
+        height: 10px;
+    }
+
+    #left {
+        float: left;
+        width: 20%;
+        overflow: hidden;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #right {
+        width: 75%;
+        overflow: hidden;
+    }
+
+    input.inputbox {
+        float: right;
+    }
+
+    #table1c {
+        height: 25vh;
+        overflow-y: scroll;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+    #tablecrm {
+        height: 25vh;
+        overflow-y: scroll;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+    #tablespr {
+        height: 25vh;
+        overflow-y: scroll;
+        float: left;
+        margin-bottom: 15px;
+    }
+
+    .error {
+        font-size: 24px;
+        color: red;
+    }
+</style>
+
+<script>
+    function handleCRMChose(element, id, name, surname, domainname, mail) {
+        document.getElementById('idcrm').value = id;
+        document.getElementById('ENfirstname').value = name;
+        document.getElementById('ENlastname').value = surname;
+        document.getElementById('domainname').value = domainname;
+        document.getElementById('mail').value = mail;
+
+    }
+
+    function handle1CChose(element, id, name, surname) {
+        document.getElementById('id1c').value = id;
+        document.getElementById('RUfirstname').value = name;
+        document.getElementById('RUlastame').value = surname;
+    }
+
+    function handleSprChose(element, id) {
+        document.getElementById('idsprav').value = id;
+        document.getElementById('idsprav').readOnly = true;
+    }
+
+
+</script>
+
+@using (Html.BeginForm())
+{
+
+    <div id="left">
+        Фамилия на русском: @Html.TextBox("SearchString")
+        <input type="submit" name="submitButton" value="Search" />
+
+        <p></p>
+
+        ИмяRU:
+        @Html.TextBox("RUfirstname", null, new { @class = "inputbox" })
+
+        <p></p>
+
+        ФамилияRU:
+        @Html.TextBox("RUlastame", null, new { @class = "inputbox" })
+
+        <p></p>
+
+        ИмяEN:
+        @Html.TextBox("ENfirstname", null, new { @class = "inputbox" })
+
+        <p></p>
+
+        ФамилияEn:
+        @Html.TextBox("ENlastname", null, new { @class = "inputbox" })
+
+        <p></p>
+
+        Доменное Имя:
+        @Html.TextBox("domainname", null, new { @class = "inputbox" })
+
+        <p></p>
+
+        Электронная почта
+        @Html.TextBox("mail", null, new { @class = "inputbox" })
+
+        <p></p>
+
+        ID в 1С:
+        @Html.TextBox("id1c", null, new { @class = "inputbox" })
+
+        <p></p>
+
+        ID в CRM:
+        @Html.TextBox("idcrm", null, new { @class = "inputbox" })
+
+        <p></p>
+
+        ID в Справочнике:
+        @Html.TextBox("idsprav", null, new { @class = "inputbox" })
+
+        <p></p>
+
+        <input type="submit" name="submitButton" value="Map" />
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="error">
+                @ViewBag.Message
+            </div>
+        }
+    </div>
+
+    <div id="right">
+
+        @if (Model != null)
+        {
+            <div style="text-align:center;">CRM Пользователи</div>
+
+            <p></p>
+
+            <div id="tablecrm">
+
+                <table>
+                    <tr>
+                        <td>     </td>
+                        <td>SysUIDCRM</td>
+                        <td>SysUFullName</td>
+                        <td>Parent</td>
+                        <td>Otdel</td>
+                        <td>DomainName</td>
+                        <td>EMailAddress</td>
+
+                    </tr>
+
+                    @foreach (UserCRM user in Model.listCRM)
+                    {
+                        <tr>
+                            <td>
+                                @Html.RadioButtonFor(m => m.listCRM, "", new
+                           {
+                               onchange = "handleCRMChose(this, '" + user.SysUIDCRM +
+             "', '" + user.SysUFirstName + "', '" + user.SysULastName + "', '" + user.DomainName.doubleslash() +
+             "', '" + user.EMailAddress + "')"
+                           })
+                            </td>
+                            <td>@user.SysUIDCRM</td>
+                            <td>@user.SysUFullName</td>
+                            <td>@user.Parent</td>
+                            <td>@user.Otdel</td>
+                            <td>@user.DomainName</td>
+                            <td>@user.EMailAddress</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+            <p></p>
+
+            <div style="text-align:center;">   1С Пользователи</div>
+
+            <p></p>
+
+            <div id="table1c">
+                <table>
+                    <tr>
+                        <td>     </td>
+                        <td>User_ID</td>
+                        <td>User_Name</td>
+                        <td>Parent</td>
+                        <td>Sub_Name</td>
+                    </tr>
+
+                    @foreach (User1C user in Model.list1C)
+                    {
+                        <tr>
+                            <td>
+                                @Html.RadioButtonFor(m => m.list1C, "", new
+                           {
+                               onchange = "handle1CChose(this, '" + user.User_ID + "', '" +
+             user.User_Name.GetFirstName() + "', '" + user.User_Name.GetLastName() + "')"
+                           })
+                            </td>
+                            <td>@user.User_ID</td>
+                            <td>@user.User_Name</td>
+                            <td>@user.Parent</td>
+                            <td>@user.Sub_Name</td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+            <p></p>
+
+            <div style="text-align:center;">Пользователи из справочника</div>
+
+            <p></p>
+
+            <div id="tablespr">
+                <table>
+                    <tr>
+                        <td>     </td>
+                        <td>ID</td>
+                        <td>FullNameRU</td>
+                        <td>DomainName</td>
+                        <td>EmailAdress</td>
+                    </tr>
+
+                    @foreach (UserSpr user in Model.listSpr)
+                    {
+                        <tr>
+                            <td>
+                                @Html.RadioButtonFor(m => m.listSpr, "", new { onchange = "handleSprChose(this, '" + user.ID + "')" })
+                            </td>
+                            <td>@user.ID</td>
+                            <td>@user.FullNameRu</td>
+                            <td>@user.DomainName</td>
+                            <td>@user.EMailAddress</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+    </div>
+
+}
