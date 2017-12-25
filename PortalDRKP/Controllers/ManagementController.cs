@@ -25,10 +25,14 @@ namespace PortalDRKP.Controllers
             return PartialView(subs);
             
         }
-        public ActionResult Emp()
+        public ActionResult Emp(int? id)
         {
+            IEnumerable<T_1C_Subdivision> Isubs = db.T_1C_Subdivision;
+            T_1C_Subdivision ThisSub = Isubs.Where(p=>p.Sub_ID == id).FirstOrDefault();
+            ViewBag.Message = ThisSub.Sub_Name;
+            ViewBag.SubID = id;
             IEnumerable<T_1C_Users> Iusers = db.T_1C_Users;
-            var users = Iusers.Where(p => p.Sub_ID == 10).ToList();
+            var users = Iusers.Where(p => p.Sub_ID == id).ToList();
             return PartialView(users);
 
         }

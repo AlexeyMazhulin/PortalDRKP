@@ -35,37 +35,18 @@ if (items.Any())
                             <p class="TreeStyle" style="display:inline-block" onclick="my_f(@item.Sub_ID)">
                                 @item.Sub_Name
                                 @if (item.DepartmentID != null)
-                                {<span style="color:green">(@item.cmnDepartment.DepartmentName)</span>
+                                {<span style="color:green">/Department - (@item.cmnDepartment.DepartmentName)</span>
                                 }
                                 @if (item.pVertical != null)
-                                {<span style="color:red">*@item.pVertical.Name*</span>
+                                {<span style="color:red">/Vertical -@item.pVertical.Name*</span>
                                 }
                             </p>
                             <div class="SubMenu">
                                <a class="SubMenuEdit" onmouseover="S_in(1)" onmouseout="S_out()" href="/T_1C_Subdivision/Edit/@item.Sub_ID">__Edit__</a>
-                                <a class="SubMenuEdit" onmouseover="S_in(1)" onmouseout="S_out()" href="/T_1C_Subdivision/Details/@item.Sub_ID">Details</a>
+                                <a class="SubMenuEdit" onmouseover="S_in(2)" onmouseout="S_out()" href="/T_1C_Subdivision/Details/@item.Sub_ID">Details</a>
                             </div>
                         </div>
 
-                            @*<ul class="@item.Sub_ID" style="display:none">
-                @foreach (T_1C_Users st in item.T_1C_Users)
-                {
-                    <li class="Employee" style="list-style-type:none;">
-                        <div class="Employee">
-                            @if (item.T_1C_Users != null)
-                            { @st.User_Name}
-                            @*else
-                            {@st.StaffCode }
-                        </div>
-                        <div class="EmpMenu">
-                            <a class="EmpMenuEdit" onmouseover="f_in(1)" onmouseout="f_out()">__E  d  i  t</a>
-                            <a class="EmpMenuKPI" onmouseover="f_in(2)" onmouseout="f_out()">adKPI</a>
-                            <a class="EmpMenuDetails" onmouseover="f_in(3)" onmouseout="f_out()">Details</a>
-                        </div>
-                    </li>
-
-                }
-            </ul>*@
                             @if (item.Sub_ID != 12) { isVisible = "none"; }
             else { isVisible = "block"; }
                             @BuildMenu(data, item.Sub_ID, isVisible, item.Sub_ID)

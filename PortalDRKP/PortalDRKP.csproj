@@ -162,6 +162,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Ed.png" />
+    <Content Include="Images\EdDet.png" />
+    <Content Include="Images\EdED.png" />
     <Content Include="Images\EmpDetails.png" />
     <Content Include="Images\EmpEdit.png" />
     <Content Include="Images\EmpEmty.png" />

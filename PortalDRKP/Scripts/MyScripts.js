@@ -29,23 +29,23 @@ function f_out() {
 
 
 function S_in(inp) {
-    //var objects = document.getElementsByClassName("SubMenu");
-    //for (var i = 0, cnt = objects.length; i < cnt; i++) {
-    //    if (inp === 1) {
-    //        objects[i].style.backgroundImage = 'url("../Images/EmpEdit.png")';
-    //    }
-    //    if (inp === 2) {
-    //        objects[i].style.backgroundImage = 'url("../Images/EmpKPI.png")';
-    //    }
-    //    if (inp === 3) {
-    //        objects[i].style.backgroundImage = 'url("../Images/EmpDetails.png")';
-    //    }
+    var objects = document.getElementsByClassName("SubMenu");
+    for (var i = 0, cnt = objects.length; i < cnt; i++) {
+        if (inp === 1) {
+            objects[i].style.backgroundImage = 'url("../Images/EdEd.png")';
+        }
+        if (inp === 2) {
+            objects[i].style.backgroundImage = 'url("../Images/EdDet.png")';
+        }
+        //if (inp === 3) {
+        //    objects[i].style.backgroundImage = 'url("../Images/EmpDetails.png")';
+        //}
 
-    //}
+    }
 }
 function S_out() {
-    //var objects = document.getElementsByClassName("SubMenu");
-    //for (var i = 0, cnt = objects.length; i < cnt; i++) {
-    //    objects[i].style.backgroundImage = 'url("../Images/EmpEmty.png")';
-    //}
+    var objects = document.getElementsByClassName("SubMenu");
+    for (var i = 0, cnt = objects.length; i < cnt; i++) {
+        objects[i].style.backgroundImage = 'url("../Images/ED.png")';
+    }
 }

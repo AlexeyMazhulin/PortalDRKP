@@ -9,7 +9,13 @@
 <div>
     <h4>T_1C_Subdivision</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" style="font-size:2.2em;">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sub_ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sub_ID)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.cmnDepartment.DepartmentName)
         </dt>
@@ -84,8 +90,8 @@
 
     </dl>
 </div>
-<p>
+<p style="font-size:2.2em;">
     @Html.ActionLink("Edit", "Edit", new { id = Model.Sub_ID }) |
     @Html.ActionLink("Back to List", "Sub", "Management")|
-    @Html.ActionLink("Show Employee", "Emp", "Management")
+    @Html.ActionLink("Show Employee", "Emp", "Management", new { id = Model.Sub_ID }, null)
 </p>
